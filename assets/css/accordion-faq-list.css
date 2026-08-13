@@ -1,0 +1,63 @@
+.accordion collapse {
+  border: 0;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  border: none;
+}
+
+.accordion-button:not(.collapsed) {
+  background: none;
+  color: #ff9800;
+  box-shadow: none;
+  border-bottom: none;
+}
+
+.accordion-button::after {
+  width: auto;
+  height: auto;
+  content: "+";
+  font-size: 40px;
+  background-image: none;
+  font-weight: 100;
+  color: #1b6ce5;
+  transform: translateY(-4px);
+}
+
+.accordion-button:not(.collapsed)::after {
+  width: auto;
+  height: auto;
+  background-image: none;
+  content: "-";
+  font-size: 48px;
+  transform: translate(-5px, -4px);
+  transform: rotate(0deg);
+}
+
+#service {
+  padding: 0;
+}
+
+#test {
+  padding: 0;
+}
+
+#hccku {
+  padding: 0;
+}
+
+#hvkvk {
+  padding: 0;
+}
+
+#imggg {
+  height: 50px;
+  margin-right: 0.5rem;
+}
+
+#imggg-1 {
+  height: 50px;
+  margin-right: 0.5rem;
+}
+
