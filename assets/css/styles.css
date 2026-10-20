@@ -1,0 +1,1215 @@
+/* ==========================================================================
+   Grease Monky Garage - site styles
+   Built on the Bootstrap 5.1 grid and collapse component; everything visual
+   is defined here. Brand palette: black + yellow (#fdb913).
+
+   1.  Tokens & base
+   2.  Buttons
+   3.  Header & navigation
+   4.  Sections & headings
+   5.  Home: hero
+   6.  Home: about
+   7.  Home: services
+   8.  Home: team
+   9.  Home: testimonials
+   10. Home: contact & map
+   11. Inner pages: page hero
+   12. Garage services page
+   13. Mobile services page
+   14. Call-to-action band
+   15. Footer
+   16. Thank-you page
+   ========================================================================== */
+
+
+/* 1. Tokens & base
+   ========================================================================== */
+
+:root {
+    --yellow: #fdb913;
+    --yellow-light: #ffcb45;
+    --black: #0a0a0a;
+    --ink: #121315;
+    --surface: #1a1c20;
+    --surface-raised: #23262b;
+    --line: rgba(255, 255, 255, 0.1);
+    --text: #e6e7e9;
+    --muted: #a3a8ae;
+    --radius: 8px;
+    --shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    --font-heading: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+    --font-body: "Barlow", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --header-height: 76px;
+}
+
+html {
+    scroll-padding-top: var(--header-height);
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--text);
+    background-color: var(--black);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+a {
+    color: var(--yellow);
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--yellow-light);
+}
+
+::selection {
+    color: var(--black);
+    background: var(--yellow);
+}
+
+:focus-visible {
+    outline: 3px solid var(--yellow);
+    outline-offset: 3px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    z-index: 2000;
+    padding: 0.75rem 1.25rem;
+    font-weight: 700;
+    color: var(--black);
+    background: var(--yellow);
+    border-radius: var(--radius);
+}
+
+.skip-link:focus {
+    top: 1rem;
+    color: var(--black);
+}
+
+.text-yellow {
+    color: var(--yellow);
+}
+
+/* Lists with yellow tick bullets. */
+.check-list {
+    display: grid;
+    gap: 0.75rem;
+    align-content: start;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.check-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.check-list li::before {
+    content: "";
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    margin-top: 0.15em;
+    background: var(--yellow) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%230a0a0a' d='M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z'/%3E%3C/svg%3E") center / 14px no-repeat;
+    border-radius: 50%;
+}
+
+
+/* 2. Buttons
+   ========================================================================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.75rem;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-width: 2px;
+    border-radius: var(--radius);
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn:focus {
+    box-shadow: none;
+}
+
+.btn-brand {
+    color: var(--black);
+    background-color: var(--yellow);
+    border-color: var(--yellow);
+}
+
+.btn-brand:hover,
+.btn-brand:focus {
+    color: var(--black);
+    background-color: var(--yellow-light);
+    border-color: var(--yellow-light);
+}
+
+.btn-outline-white {
+    color: #fff;
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.btn-outline-white:hover,
+.btn-outline-white:focus {
+    color: var(--black);
+    background-color: #fff;
+    border-color: #fff;
+}
+
+.btn-black {
+    color: var(--yellow);
+    background-color: var(--black);
+    border-color: var(--black);
+}
+
+.btn-black:hover,
+.btn-black:focus {
+    color: var(--yellow);
+    background-color: #262626;
+    border-color: #262626;
+}
+
+.btn-outline-black {
+    color: var(--black);
+    background: transparent;
+    border-color: var(--black);
+}
+
+.btn-outline-black:hover,
+.btn-outline-black:focus {
+    color: var(--yellow);
+    background-color: var(--black);
+}
+
+.btn-sm {
+    padding: 0.55rem 1.1rem;
+    font-size: 1rem;
+}
+
+.link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.link-arrow .fa {
+    transition: transform 0.2s ease;
+}
+
+.link-arrow:hover .fa {
+    transform: translateX(4px);
+}
+
+
+/* 3. Header & navigation
+   ========================================================================== */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    background-color: rgba(10, 10, 10, 0.94);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.site-header .navbar {
+    min-height: var(--header-height);
+    padding: 0.75rem 0;
+}
+
+.site-logo {
+    display: block;
+    width: auto;
+    height: 44px;
+}
+
+.site-header .navbar-toggler {
+    padding: 0.4rem 0.6rem;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.site-header .navbar-toggler:focus {
+    box-shadow: 0 0 0 3px rgba(253, 185, 19, 0.5);
+}
+
+.site-header .navbar-nav .nav-link {
+    position: relative;
+    padding: 0.5rem 0;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #d4d6d9;
+}
+
+.site-header .navbar-nav .nav-link:hover,
+.site-header .navbar-nav .nav-link:focus,
+.site-header .navbar-nav .nav-link.active {
+    color: var(--yellow);
+}
+
+@media (min-width: 992px) {
+    .site-header .navbar-nav .nav-link {
+        margin: 0 1rem;
+    }
+
+    /* Yellow underline that grows in on hover / current page. */
+    .site-header .navbar-nav .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0.1rem;
+        height: 2px;
+        background: var(--yellow);
+        transform: scaleX(0);
+        transition: transform 0.25s ease;
+    }
+
+    .site-header .navbar-nav .nav-link:hover::after,
+    .site-header .navbar-nav .nav-link.active::after {
+        transform: scaleX(1);
+    }
+}
+
+@media (max-width: 991.98px) {
+    .site-header .navbar-nav {
+        padding: 1rem 0 0.5rem;
+    }
+
+    .header-cta {
+        margin-top: 0.75rem;
+    }
+}
+
+
+/* 4. Sections & headings
+   ========================================================================== */
+
+.section {
+    padding: 6rem 0;
+}
+
+.section-alt {
+    background-color: var(--ink);
+}
+
+@media (max-width: 767.98px) {
+    .section {
+        padding: 4rem 0;
+    }
+}
+
+.section-header {
+    max-width: 720px;
+    margin: 0 auto 3.5rem;
+    text-align: center;
+}
+
+.section-header-start {
+    margin-left: 0;
+    text-align: left;
+}
+
+.section-title {
+    margin-bottom: 1.25rem;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    color: var(--yellow);
+}
+
+/* Short yellow rule under every section title. */
+.section-title::after {
+    content: "";
+    display: block;
+    width: 56px;
+    height: 4px;
+    margin: 1rem auto 0;
+    background: var(--yellow);
+}
+
+.section-header-start .section-title::after {
+    margin-left: 0;
+}
+
+.section-lead {
+    margin: 0;
+    font-size: 1.15rem;
+    color: var(--muted);
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--yellow);
+}
+
+.eyebrow::before {
+    content: "";
+    width: 32px;
+    height: 2px;
+    background: var(--yellow);
+}
+
+
+/* 5. Home: hero
+   ========================================================================== */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 5rem 0 6rem;
+    background:
+        radial-gradient(circle at 85% 20%, rgba(253, 185, 19, 0.12), transparent 45%),
+        var(--black);
+}
+
+.hero-title {
+    margin-bottom: 1.5rem;
+    font-size: clamp(3rem, 7vw, 5.25rem);
+    line-height: 0.95;
+}
+
+.hero-title span {
+    color: var(--yellow);
+}
+
+.hero-text {
+    max-width: 34rem;
+    margin-bottom: 2.25rem;
+    font-size: 1.2rem;
+    color: var(--muted);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+@media (max-width: 575.98px) {
+    .hero-actions .btn {
+        flex: 1 1 100%;
+    }
+}
+
+.hero-points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.75rem;
+    margin-top: 2.5rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.hero-media {
+    position: relative;
+    margin: 0 1.5rem 1.5rem 0;
+}
+
+/* Offset yellow frame behind the photo. */
+.hero-media::before {
+    content: "";
+    position: absolute;
+    inset: 1.5rem -1.5rem -1.5rem 1.5rem;
+    border: 3px solid var(--yellow);
+    border-radius: var(--radius);
+}
+
+.hero-media img {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: 70% center;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.hero-badge {
+    position: absolute;
+    left: -1.5rem;
+    bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    max-width: 260px;
+    padding: 1rem 1.25rem;
+    color: #fff;
+    background: var(--black);
+    border: 2px solid var(--yellow);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.hero-badge img {
+    width: 44px;
+    height: 44px;
+}
+
+.hero-badge strong {
+    display: block;
+    color: var(--yellow);
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    line-height: 1.05;
+    text-transform: uppercase;
+}
+
+.hero-badge span {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #d4d6d9;
+}
+
+@media (max-width: 991.98px) {
+    .hero {
+        padding: 3.5rem 0 4.5rem;
+    }
+
+    .hero-media {
+        margin-top: 3rem;
+    }
+
+    .hero-badge {
+        left: 1rem;
+    }
+}
+
+
+/* 6. Home: about
+   ========================================================================== */
+
+.about-media {
+    position: relative;
+}
+
+.about-media img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.about-media::after {
+    content: "";
+    position: absolute;
+    right: -0.75rem;
+    bottom: -0.75rem;
+    z-index: -1;
+    width: 45%;
+    height: 45%;
+    background: var(--yellow);
+    border-radius: var(--radius);
+}
+
+.about-media {
+    isolation: isolate;
+}
+
+.about-text p {
+    color: var(--muted);
+}
+
+.about-text .about-tagline {
+    margin: 1.75rem 0 2rem;
+    padding-left: 1.25rem;
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.15;
+    text-transform: uppercase;
+    color: #fff;
+    border-left: 4px solid var(--yellow);
+}
+
+
+/* 7. Home: services
+   ========================================================================== */
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 2.25rem 1.75rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.service-card:hover {
+    background: var(--surface-raised);
+    border-color: var(--yellow);
+    transform: translateY(-6px);
+}
+
+/* Coloured icon on a white disc; on hover the disc turns black and the
+   reversed (white) icon fades in. */
+.service-card-icon {
+    position: relative;
+    width: 88px;
+    height: 88px;
+    margin-bottom: 1.75rem;
+    background: #fff;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.service-card-icon img {
+    position: absolute;
+    inset: 0;
+    width: 58px;
+    height: 58px;
+    margin: auto;
+    transition: opacity 0.3s ease;
+}
+
+.service-card-icon .service-card-icon-hover,
+.service-card:hover .service-card-icon img {
+    opacity: 0;
+}
+
+.service-card:hover .service-card-icon {
+    background: var(--black);
+    border-color: var(--yellow);
+}
+
+.service-card:hover .service-card-icon .service-card-icon-hover {
+    opacity: 1;
+}
+
+.service-card-title {
+    margin-bottom: 0.75rem;
+    font-size: 1.7rem;
+}
+
+.service-card-text {
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+    color: var(--muted);
+}
+
+
+/* 8. Home: team
+   ========================================================================== */
+
+.team-card {
+    height: 100%;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    transition: border-color 0.3s ease;
+}
+
+.team-card:hover {
+    border-color: var(--yellow);
+}
+
+.team-card-photo {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center 25%;
+    border-bottom: 4px solid var(--yellow);
+}
+
+.team-card-body {
+    padding: 1.75rem;
+}
+
+.team-card-name {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.team-card-role {
+    margin: 0.35rem 0 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--yellow);
+}
+
+.social-icons {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    font-size: 1.1rem;
+    color: #fff;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.social-icons a:hover {
+    color: var(--black);
+    background: var(--yellow);
+    border-color: var(--yellow);
+}
+
+
+/* 9. Home: testimonials
+   ========================================================================== */
+
+.testimonial-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0;
+    padding: 2rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+.testimonial-stars {
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.2em;
+    color: var(--yellow);
+}
+
+.testimonial-quote {
+    flex-grow: 1;
+    margin: 0 0 1.75rem;
+    color: var(--text);
+}
+
+.testimonial-quote p {
+    margin: 0;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--line);
+}
+
+.testimonial-initials {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--black);
+    background: var(--yellow);
+    border-radius: 50%;
+}
+
+.testimonial-name {
+    display: block;
+    font-style: normal;
+    font-weight: 700;
+    color: #fff;
+}
+
+.testimonial-date {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+
+/* 10. Home: contact & map
+   ========================================================================== */
+
+.contact-form-card {
+    padding: 2.5rem;
+    color: #1d1f22;
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.contact-form-card h3 {
+    margin-bottom: 1.75rem;
+    font-size: 2rem;
+    color: var(--black);
+}
+
+.contact-form-card .form-label {
+    font-weight: 600;
+}
+
+.contact-form-card .form-control,
+.contact-form-card .form-select {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border-color: #cfd3d8;
+    border-radius: 6px;
+}
+
+.contact-form-card .form-control:focus,
+.contact-form-card .form-select:focus {
+    border-color: var(--yellow);
+    box-shadow: 0 0 0 0.25rem rgba(253, 185, 19, 0.35);
+}
+
+@media (max-width: 575.98px) {
+    .contact-form-card {
+        padding: 1.75rem 1.25rem;
+    }
+}
+
+.contact-details {
+    display: grid;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+.contact-detail-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    font-size: 1.35rem;
+    color: var(--black);
+    background: var(--yellow);
+    border-radius: 50%;
+}
+
+.contact-detail-label {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.contact-detail-value {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+a.contact-detail-value:hover {
+    color: var(--yellow);
+}
+
+.map-frame {
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.map-frame iframe {
+    display: block;
+    width: 100%;
+    height: 440px;
+    border: 0;
+}
+
+
+/* 11. Inner pages: page hero
+   ========================================================================== */
+
+.page-hero {
+    padding: 6.5rem 0 5.5rem;
+    background:
+        linear-gradient(90deg, rgba(10, 10, 10, 0.96) 0%, rgba(10, 10, 10, 0.82) 55%, rgba(10, 10, 10, 0.55) 100%),
+        url("../img/page-banner.jpg") center / cover no-repeat;
+    border-bottom: 4px solid var(--yellow);
+}
+
+.page-hero-title {
+    margin-bottom: 1.25rem;
+    font-size: clamp(3rem, 7vw, 5rem);
+    line-height: 0.95;
+}
+
+.page-hero-title span {
+    color: var(--yellow);
+}
+
+.page-hero-text {
+    max-width: 40rem;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    color: #c9ccd0;
+}
+
+@media (max-width: 767.98px) {
+    .page-hero {
+        padding: 4.5rem 0 4rem;
+    }
+}
+
+
+/* 12. Garage services page
+   ========================================================================== */
+
+.garage-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.garage-card:hover {
+    border-color: var(--yellow);
+    transform: translateY(-6px);
+}
+
+.garage-card-media {
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+}
+
+.garage-card-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.garage-card:hover .garage-card-media img {
+    transform: scale(1.05);
+}
+
+.garage-card-body {
+    padding: 1.75rem;
+}
+
+.garage-card-title {
+    margin-bottom: 0.75rem;
+    font-size: 1.65rem;
+    color: var(--yellow);
+}
+
+.garage-card-text {
+    margin: 0;
+    color: var(--muted);
+}
+
+
+/* 13. Mobile services page
+   ========================================================================== */
+
+.feature-row + .feature-row {
+    margin-top: 5rem;
+}
+
+.feature-media img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.feature-index {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-heading);
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--yellow);
+}
+
+.feature-title {
+    margin-bottom: 1rem;
+    font-size: clamp(2.25rem, 4vw, 3rem);
+    color: var(--yellow);
+}
+
+.feature-text {
+    margin-bottom: 1.75rem;
+    font-size: 1.125rem;
+    color: var(--muted);
+}
+
+@media (max-width: 991.98px) {
+    .feature-row + .feature-row {
+        margin-top: 3.5rem;
+    }
+}
+
+.price-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 2.25rem 2rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+.price-card-featured {
+    background: var(--surface-raised);
+    border: 2px solid var(--yellow);
+    box-shadow: 0 0 0 4px rgba(253, 185, 19, 0.12), var(--shadow);
+}
+
+.price-card-name {
+    margin-bottom: 1rem;
+    font-size: 1.35rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+}
+
+.price-card-price {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    border-bottom: 1px solid var(--line);
+}
+
+.price-card-price small {
+    margin-right: 0.35rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--yellow);
+}
+
+.price-card .check-list {
+    flex-grow: 1;
+    margin-bottom: 2rem;
+}
+
+
+/* 14. Call-to-action band
+   ========================================================================== */
+
+.cta-band {
+    padding: 4rem 0;
+    color: var(--black);
+    background: var(--yellow);
+}
+
+.cta-band-title {
+    margin: 0 0 0.5rem;
+    font-size: clamp(2.25rem, 4vw, 3rem);
+    color: var(--black);
+}
+
+.cta-band-text {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: rgba(10, 10, 10, 0.8);
+}
+
+.cta-band-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+@media (min-width: 992px) {
+    .cta-band-actions {
+        justify-content: flex-end;
+    }
+}
+
+
+/* 15. Footer
+   ========================================================================== */
+
+.site-footer {
+    padding-top: 4.5rem;
+    font-size: 1rem;
+    color: var(--muted);
+    background: #050505;
+}
+
+.footer-about {
+    max-width: 22rem;
+    margin: 1.25rem 0 1.5rem;
+}
+
+.footer-title {
+    margin-bottom: 1.25rem;
+    font-size: 1.3rem;
+    letter-spacing: 0.06em;
+}
+
+.footer-links,
+.footer-contact {
+    display: grid;
+    gap: 0.7rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-links a,
+.footer-contact a {
+    color: var(--muted);
+    text-decoration: none;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover {
+    color: var(--yellow);
+}
+
+.footer-contact li {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.footer-contact .fa {
+    width: 1.1rem;
+    margin-top: 0.3rem;
+    color: var(--yellow);
+    text-align: center;
+}
+
+.footer-bottom {
+    margin-top: 3.5rem;
+    padding: 1.5rem 0;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--line);
+}
+
+
+/* 16. Thank-you page
+   ========================================================================== */
+
+.thanks-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(253, 185, 19, 0.14), transparent 55%),
+        var(--black);
+}
+
+.thanks-card {
+    width: 100%;
+    max-width: 520px;
+    padding: 3rem 2.5rem;
+    text-align: center;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--yellow);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.thanks-card .site-logo {
+    margin: 0 auto 2rem;
+}
+
+.thanks-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    margin-bottom: 1.5rem;
+    background: var(--yellow);
+    border-radius: 50%;
+}
+
+.thanks-title {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+}
+
+.thanks-text {
+    margin-bottom: 2rem;
+    color: var(--muted);
+}
