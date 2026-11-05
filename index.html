@@ -283,24 +283,26 @@
                 </div>
                 <div class="row g-4 g-lg-5">
                     <div class="col-lg-7">
-                        <form class="contact-form-card" action="https://formsubmit.co/greasemonkygarage52@gmail.com" method="post">
-                            <input type="hidden" name="_subject" value="New website enquiry – Grease Monky Garage">
-                            <input type="hidden" name="_captcha" value="true">
-                            <input type="hidden" name="_next" value="https://www.greasemonkygarage.com/thanks.html">
-                            <input type="text" name="_honey" class="d-none" tabindex="-1" autocomplete="off" aria-hidden="true">
+                        <form class="contact-form-card" action="https://api.web3forms.com/submit" method="post">
+                            <!-- Web3Forms access key (safe to be public). Get yours free at web3forms.com using greasemonkygarage52@gmail.com -->
+                            <input type="hidden" name="access_key" value="526694f2-91a9-45f2-b102-e104b9793822">
+                            <input type="hidden" name="subject" value="New website enquiry – Grease Monky Garage">
+                            <input type="hidden" name="from_name" value="Grease Monky Garage Website">
+                            <input type="hidden" name="redirect" value="https://www.greasemonkygarage.com/thanks.html">
+                            <input type="checkbox" name="botcheck" class="d-none" style="display: none;" tabindex="-1" autocomplete="off" aria-hidden="true">
                             <h3>Send us a message</h3>
                             <div class="row g-3">
                                 <div class="col-sm-6">
-                                    <label class="form-label" for="from_name">Name</label>
-                                    <input class="form-control" type="text" id="from_name" name="from_name" autocomplete="name" required placeholder="Full name">
+                                    <label class="form-label" for="name">Name</label>
+                                    <input class="form-control" type="text" id="name" name="name" autocomplete="name" required placeholder="Full name">
                                 </div>
                                 <div class="col-sm-6">
-                                    <label class="form-label" for="from_email">Email</label>
-                                    <input class="form-control" type="email" id="from_email" name="from_email" autocomplete="email" required placeholder="you@example.com">
+                                    <label class="form-label" for="email">Email</label>
+                                    <input class="form-control" type="email" id="email" name="email" autocomplete="email" required placeholder="you@example.com">
                                 </div>
                                 <div class="col-sm-6">
-                                    <label class="form-label" for="from_phone">Phone</label>
-                                    <input class="form-control" type="tel" id="from_phone" name="from_phone" autocomplete="tel" placeholder="Best contact number">
+                                    <label class="form-label" for="phone">Phone</label>
+                                    <input class="form-control" type="tel" id="phone" name="Phone" autocomplete="tel" placeholder="Best contact number">
                                 </div>
                                 <div class="col-sm-6">
                                     <label class="form-label" for="calltime">Best time to call</label>
